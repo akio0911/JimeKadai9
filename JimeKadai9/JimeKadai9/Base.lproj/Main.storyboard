@@ -37,7 +37,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="入力"/>
                                 <connections>
-                                    <action selector="selectButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ygn-h9-Knt"/>
+                                    <segue destination="QnG-JU-fqY" kind="presentation" id="0h2-89-gX7"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -58,18 +58,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="214" y="129"/>
+            <point key="canvasLocation" x="275" y="112"/>
         </scene>
         <!--Select Prefecture View Controller-->
         <scene sceneID="Jvh-ag-f94">
             <objects>
                 <viewController storyboardIdentifier="Prefecture" id="CjI-Fq-aTe" customClass="SelectPrefectureViewController" customModule="JimeKadai9" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="efg-CR-lvN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="YL6-rF-kQU">
-                                <rect key="frame" x="166.5" y="151" width="81.5" height="169"/>
+                                <rect key="frame" x="166.5" y="163" width="81.5" height="169"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xgv-i3-w8c">
                                         <rect key="frame" x="0.0" y="0.0" width="81.5" height="31"/>
@@ -125,11 +125,40 @@
                         </constraints>
                     </view>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="fD6-gE-WS0">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="nn8-IJ-VpM">
+                            <connections>
+                                <segue destination="P7g-nR-Phh" kind="unwind" unwindAction="cancellAction:" id="mxZ-K7-Z7R"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="P7g-nR-Phh" kind="unwind" identifier="Exit" unwindAction="doneUpdate:" id="l4S-Nd-1Pp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aQc-uE-foN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="P7g-nR-Phh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="868" y="129"/>
+            <point key="canvasLocation" x="1803" y="112"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="b5m-3N-EzK">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QnG-JU-fqY" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="bwN-FH-Ibh">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CjI-Fq-aTe" kind="relationship" relationship="rootViewController" id="DGY-PG-BKR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DKH-kE-kah" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1070" y="112"/>
         </scene>
     </scenes>
     <resources>

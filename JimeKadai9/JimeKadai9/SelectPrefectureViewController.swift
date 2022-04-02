@@ -8,45 +8,28 @@
 import UIKit
 
 class SelectPrefectureViewController: UIViewController {
-    var viewController: ViewController?
+    private(set) var selectedPrefectureName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupNabbar()
+        navigationController?.navigationBar.backgroundColor = .gray.withAlphaComponent(0.5)
     }
 
     @IBAction private func tokyoSelected(_ sender: UIButton) {
-        guard let viewController = viewController else { return }
-        viewController.selectedPrefecture = "東京都"
-        dismiss(animated: true)
+        doneUpate(prefetureText: "東京都")
     }
     @IBAction private func kanagawaSelected(_ sender: UIButton) {
-        guard let viewController = viewController else { return }
-        viewController.selectedPrefecture = "神奈川県"
-        dismiss(animated: true)
+        doneUpate(prefetureText: "神奈川県")
     }
     @IBAction private func saitamaSelected(_ sender: UIButton) {
-        guard let viewController = viewController else { return }
-        viewController.selectedPrefecture = "埼玉県"
-        dismiss(animated: true)
+        doneUpate(prefetureText: "埼玉県")
     }
     @IBAction private func chibaSelected(_ sender: UIButton) {
-        guard let viewController = viewController else { return }
-        viewController.selectedPrefecture = "千葉県"
-        dismiss(animated: true)
+        doneUpate(prefetureText: "千葉県")
     }
 
-    private func setupNabbar() {
-        let navigation = UINavigationBar()
-        navigation.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40)
-        let navBar = UINavigationItem()
-        let cancelBar = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissModal))
-        navBar.leftBarButtonItem = cancelBar
-        navigation.pushItem(navBar, animated: true)
-        view.addSubview(navigation)
-    }
-
-    @objc func dismissModal() {
-        dismiss(animated: true)
+    private func doneUpate(prefetureText: String) {
+        selectedPrefectureName = prefetureText
+        performSegue(withIdentifier: "Exit", sender: nil)
     }
 }
